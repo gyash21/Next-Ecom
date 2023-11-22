@@ -3,14 +3,20 @@
 import { Session } from 'next-auth'
 import { signIn } from 'next-auth/react'
 import Image from 'next/image'
+import Link from 'next/link'
+import Cart from './Cart'
+import { useCartStore } from '@/store'
 
 
 
 
 export default function Nav({user}: Session){
+    const cartStore = useCartStore()
     return(
         <nav className='flex justify-between items-center py-8'>
+            <Link href={"/"}>
             <h1 className='text-2xl text-teal-700 font-bold'>Next-Ecom</h1>
+            </Link>
             <ul className='flex items-center gap-12'>    
               {/* If the use is not signed in        */}
                 {!user && (
@@ -25,7 +31,8 @@ export default function Nav({user}: Session){
                         </li>
                     )}
             </ul>
+            { cartStore.isOpen && <Cart/>}
         </nav>
     )
-    
+
 }
