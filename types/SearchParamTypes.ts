@@ -9,6 +9,7 @@ type SearchParams = {
     image: string
     id: string
     description: string | null
+    features: string
 
 }
 
