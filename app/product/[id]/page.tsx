@@ -4,7 +4,7 @@ import formatPrice from "@/util/PriceFormat"
 
 export default async function Product({searchParams} : SearchParamTypes) {
 return(
-    <div>
+    <div className="flex justify-between gap-12 p-12 text-gray-800">
         <Image src={searchParams.image} alt={searchParams.image} width={400} height={550}/>
 
         <div className="font-medium">
@@ -17,7 +17,7 @@ return(
                 {searchParams.unit_amount && formatPrice(searchParams.unit_amount)}
             </p>
             </div>
-            
+            <button className="my-12 text-white py-2 px-6 font-medium rounded-md bg-teal-900">Add to cart</button>
         </div>
     </div>
 )
