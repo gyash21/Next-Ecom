@@ -18,12 +18,17 @@ export default function Nav({user}: Session){
             <Link href={"/"}>
             <h1 className='text-2xl text-teal-700 font-bold'>Next-Ecom</h1>
             </Link>
-            <ul className='flex items-center gap-12'>    
-              {/* If the use is not signed in */}
-              <li className='flex items-center text-3xl relative cursor-pointer'>
+            <ul className='flex items-center gap-12'>   
+             {/* Toggle the cart  */}
+             
+              <li onClick={() => cartStore.toggleCart()} className='flex items-center text-3xl relative cursor-pointer'>
                 <AiFillShopping/>
               </li>
+                <span className='bg-teal-800 text-white text-sm font-bold w-5 h-5 rounded-full absolute left-4 bottom-4 flex items-center justify-center'>
+                    {cartStore.cart.length}
+                </span>
 
+                 {/* If the use is not signed in */}
                 {!user && (
                     <li className='bg-teal-700 text-white py-2 px-4 rounded-md'>
                     <button onClick={() => signIn()}>Sign In</button>
