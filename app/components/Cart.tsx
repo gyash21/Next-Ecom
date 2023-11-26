@@ -14,6 +14,12 @@ export default function Cart(){
                 <h1>
                     Here's your shopping list📃
                 </h1>
+                {cartStore.cart.map((item) => (
+
+                    <div className="flex py-4 gap-4">
+                        <Image src={item.image} alt={item.name} width={120} height={120}/>
+                    </div>
+                ))}
             </div>
             
         </div>
