@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import { useCartStore } from "@/store"
+import formatPrice from "@/util/PriceFormat"
 
 export default function Cart(){
 
@@ -17,13 +18,16 @@ export default function Cart(){
                 {cartStore.cart.map((item) => (
 
                     <div className="flex py-4 gap-4">
-                        <Image className="rounded-md h-24" src={item.image} alt={item.name} width={120} height={120}/>
+                        <Image className="rounded-md h-24" src={item.image} alt={item.name} width={100} height={220}/>
                         <div>
                             <h2>{item.name}</h2>
                             <h2>Quantity: {item.quantity}</h2>
+                            <p className="text-sm">{item.unit_amount && formatPrice(item.unit_amount)}</p>
                         </div>
                     </div>
                 ))}
+
+                <button className="py-2 mt-4 bg-teal-800 w-full rounded-md text-white">Checkout</button>
             </div>
             
         </div>
