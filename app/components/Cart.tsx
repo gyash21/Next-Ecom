@@ -5,6 +5,7 @@ import { useCartStore } from "@/store"
 import formatPrice from "@/util/PriceFormat"
 import {IoAddCircle, IoRemoveCircle} from "react-icons/io5"
 import basket from "@/public/cart.png"
+import {motion, AnimatePresence} from 'framer-motion'
 
 export default function Cart(){
 
@@ -19,7 +20,11 @@ export default function Cart(){
 
 
     return(
-        <div onClick={() => cartStore.toggleCart()} className="fixed w-full h-screen left-0 top-0 bg-black/25">
+        <motion.div 
+        initial={{opacity:0}}
+        animate={{opacity:1}}
+        exit={{opacity:0}}
+        onClick={() => cartStore.toggleCart()} className="fixed w-full h-screen left-0 top-0 bg-black/25">
 
             <div onClick={(e) => e.stopPropagation()} className="bg-white absolute right-0 top-0 w-1/4 h-screen p-12 overflow-y-scroll text-gray-800">
                 <h1>
@@ -72,6 +77,6 @@ export default function Cart(){
                 )}
             </div>
             
-        </div>
+        </motion.div>
     )
 }
