@@ -14,8 +14,8 @@ export default function Product({name, image, unit_amount, id, description, meta
               <Image
           src={image}
           alt={name}
-          width={380}
-          height={500}
+          width={600}
+          height={600}
           className="rounded-lg"
           priority={true}
           />
