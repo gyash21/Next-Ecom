@@ -45,6 +45,7 @@ const calculateOrderAmount = (items: AddCartType[]) => {
                     name: item.name,
                     description: item.description,
                     unit_amount: item.unit_amount,
+                    image: item.image,
                     quantity: item.quantity,
                 }))
             }
