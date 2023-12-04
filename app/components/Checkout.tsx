@@ -1,7 +1,7 @@
 'use client'
 
-import { loadStripe, StripeAddressElementOptions } from "@stripe/stripe-js"
-import { Elements } from '@stripe/stripe-js'
+import { loadStripe, StripeElementsOptions } from "@stripe/stripe-js"
+import { Elements } from '@stripe/react-stripe-js'
 import { useCartStore } from "@/store"
 import { useState, useEffect, use } from 'react'
 import { useRouter } from "next/navigation"
@@ -38,9 +38,27 @@ export default function Checkout(){
             })
     },[])
 
+
+
+    const options: StripeElementsOptions = {
+        clientSecret,
+        appearance:{
+            theme:'stripe',
+            labels: 'floating'
+
+        }
+
+    }
+
     return (
         <div>
-            <h1>Checkout</h1>
+           {clientSecret && (
+            <div>
+                <Elements options={options} stripe={stripePromise}>
+                    <h1>Form</h1>
+                </Elements>
+            </div>
+           ) }
         </div>
     )
 
